@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Iurii Klekovkin CV</title>
-    <link>https://klekovkin.github.io/</link>
+    <link>https://cv.klekovkin.com.ua/</link>
     <description>Recent content on Iurii Klekovkin CV</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://klekovkin.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cv.klekovkin.com.ua/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
