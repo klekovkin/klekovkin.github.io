@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://klekovkin.github.io/categories/</loc>
+    <loc>https://klekovkin.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://klekovkin.github.io/</loc>
+    <loc>https://klekovkin.github.io/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://klekovkin.github.io/tags/</loc>
+    <loc>https://klekovkin.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
