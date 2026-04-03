@@ -1,11 +1,19 @@
-# klekovkin.github.io
-Iurii Klekovkin CV
+# cv.klekovkin.com.ua
 
-## Repository Structure
+Personal CV page for Iurii Klekovkin.
 
-- `CV/` - Hugo-based CV source files
-- `assets/`, `index.html`, etc. - built site output served by GitHub Pages
+## Structure
 
-## Setup
+- `index.html` — the CV page (self-contained HTML + CSS, zero JavaScript)
+- `profile.png` — profile photo
+- `CNAME` — GitHub Pages custom domain config
+- `favicon.ico` / `favicon.png` — site icons
 
-    git clone https://github.com/klekovkin/klekovkin.github.io.git
+## Deployment
+
+Push to `master` branch. GitHub Pages serves from root automatically.
+No build step required.
+
+## Editing
+
+Edit `index.html` directly. All content and styling is in one file.

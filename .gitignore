@@ -1,3 +1,5 @@
 .DS_Store
-# ralphex tool directory
 .ralphex/
+.claude/
+*.swp
+*~
