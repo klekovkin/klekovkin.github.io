@@ -30,9 +30,16 @@
             --color-text-muted: #7a7a8e;
             --color-bg: #f4f4f8;
             --color-white: #fff;
+            --color-border: #e0e0e0;
             --color-success: #4CAF50;
             --color-warning: #c44200;
             --color-warning-bg: #fff3e0;
+            --color-crypto-usdt: #26A17B;
+            --color-crypto-btc: #F7931A;
+            --color-crypto-eth: #627EEA;
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 14px;
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -82,6 +89,11 @@
             font-weight: 900;
             margin-bottom: 8px;
             line-height: 1.3;
+        }
+
+        .donate-header .title-en {
+            font-weight: 400;
+            font-size: 20px;
         }
 
         .donate-header .subtitle {
@@ -146,7 +158,7 @@
         .progress-bar {
             height: 28px;
             background: var(--color-bg);
-            border-radius: 14px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
             position: relative;
         }
@@ -154,7 +166,7 @@
         .progress-bar-inner {
             height: 100%;
             background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            border-radius: 14px;
+            border-radius: var(--radius-lg);
             width: 0;
             animation: grow-bar 1.5s ease-out forwards;
             display: flex;
@@ -182,7 +194,7 @@
         .soldier-photo {
             width: 200px;
             height: 200px;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             object-fit: cover;
             border: 3px solid var(--color-accent);
             display: block;
@@ -192,7 +204,7 @@
         .photo-placeholder {
             width: 200px;
             height: 200px;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             border: 3px dashed var(--color-accent);
             display: flex;
             align-items: center;
@@ -245,7 +257,7 @@
             padding: 18px 48px;
             font-size: 18px;
             font-weight: 700;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             text-decoration: none;
             transition: background 0.3s, transform 0.2s;
             border: none;
@@ -256,6 +268,11 @@
             background: var(--color-accent-dark);
             color: var(--color-primary);
             transform: translateY(-1px);
+        }
+
+        .btn-donate:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 3px;
         }
 
         .btn-donate svg {
@@ -274,15 +291,25 @@
 
         /* Crypto */
         .crypto-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
             padding: 24px;
             margin-bottom: 16px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .crypto-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
         }
 
         .crypto-card:last-child {
             margin-bottom: 0;
         }
+
+        .crypto-card--usdt { border-left: 4px solid var(--color-crypto-usdt); }
+        .crypto-card--btc { border-left: 4px solid var(--color-crypto-btc); }
+        .crypto-card--eth { border-left: 4px solid var(--color-crypto-eth); }
 
         .crypto-header {
             display: flex;
@@ -310,15 +337,15 @@
             color: var(--color-white);
         }
 
-        .crypto-icon-usdt { background: #26A17B; }
-        .crypto-icon-btc { background: #F7931A; }
-        .crypto-icon-eth { background: #627EEA; }
+        .crypto-icon-usdt { background: var(--color-crypto-usdt); }
+        .crypto-icon-btc { background: var(--color-crypto-btc); }
+        .crypto-icon-eth { background: var(--color-crypto-eth); }
 
         .crypto-warning {
             background: var(--color-warning-bg);
             color: var(--color-warning);
             padding: 10px 14px;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             font-size: 13px;
             font-weight: 500;
             margin-bottom: 14px;
@@ -337,18 +364,18 @@
             font-size: 13px;
             background: var(--color-bg);
             padding: 12px 14px;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             word-break: break-all;
             line-height: 1.4;
             color: var(--color-text-dark);
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--color-border);
         }
 
         .copy-btn {
             background: var(--color-primary);
             color: var(--color-white);
             border: none;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             padding: 12px 16px;
             cursor: pointer;
             transition: background 0.3s;
@@ -375,6 +402,16 @@
             fill: var(--color-primary);
         }
 
+        .copy-btn:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
         .copy-btn svg {
             width: 16px;
             height: 16px;
@@ -386,8 +423,8 @@
             width: 160px;
             height: 160px;
             background: var(--color-bg);
-            border: 2px dashed #d0d0d0;
-            border-radius: 8px;
+            border: 2px dashed var(--color-border);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -414,7 +451,7 @@
 
         /* Responsive */
         @media (max-width: 767px) {
-            body { padding: 10px; }
+            body { padding: 20px; }
 
             .donate-wrapper { margin: 0; }
 
@@ -439,7 +476,7 @@
             }
 
             .crypto-address {
-                font-size: 11px;
+                font-size: 12px;
             }
 
             .crypto-address-row {
@@ -471,6 +508,10 @@
             .progress-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .progress-bar-inner { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
             .copy-btn { display: none; }
+            .qr-placeholder { display: none; }
+            .photo-placeholder { display: none; }
+            .donate-section { page-break-inside: avoid; }
+            .crypto-card { page-break-inside: avoid; }
         }
     </style>
 </head>
@@ -482,7 +523,7 @@
     <header class="donate-header">
         <!-- 159 ОМБР official emblem -->
         <img class="brigade-emblem" src="159ombr-emblem.png" alt="Емблема 159 ОМБр" width="80" height="96">
-        <h1>Збір на пікап для 159 ОМБР<br><span style="font-weight: 400; font-size: 20px;">Pickup Truck Fundraiser for 159th Brigade</span></h1>
+        <h1>Збір на пікап для 159 ОМБР<br><span class="title-en">Pickup Truck Fundraiser for 159th Brigade</span></h1>
         <p class="subtitle">Старший солдат ЗСУ &middot; 159 окрема механізована бригада</p>
     </header>
 
@@ -590,7 +631,7 @@
         </h2>
 
         <!-- USDT TRC20 -->
-        <div class="crypto-card">
+        <div class="crypto-card crypto-card--usdt">
             <div class="crypto-header">
                 <span class="crypto-icon crypto-icon-usdt">$</span>
                 <h3>USDT (TRC20)</h3>
@@ -610,7 +651,7 @@
         </div>
 
         <!-- Bitcoin -->
-        <div class="crypto-card">
+        <div class="crypto-card crypto-card--btc">
             <div class="crypto-header">
                 <span class="crypto-icon crypto-icon-btc">B</span>
                 <h3>Bitcoin (BTC)</h3>
@@ -630,7 +671,7 @@
         </div>
 
         <!-- Ethereum -->
-        <div class="crypto-card">
+        <div class="crypto-card crypto-card--eth">
             <div class="crypto-header">
                 <span class="crypto-icon crypto-icon-eth">E</span>
                 <h3>Ethereum (ETH)</h3>

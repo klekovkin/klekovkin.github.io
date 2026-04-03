@@ -2,10 +2,14 @@
 
 ## Project overview
 
-Personal website for Iurii Klekovkin hosted on GitHub Pages at `cv.klekovkin.com.ua`. Two pages:
+Personal website for Iurii Klekovkin hosted on GitHub Pages at `cv.klekovkin.com.ua`.
 
-- `index.html` — CV page (self-contained HTML + embedded CSS, zero JS)
-- `donate.html` — Donation page for 159 ОМБР pickup truck fundraiser ($10,000 USD goal)
+Six CV page variants (3 career directions x 2 languages) plus a donation page:
+
+- **Middle (blended):** `index.html` (UA), `en.html` (EN) — ATS-optimized for both SRE and PM
+- **SRE/DevOps:** `sre-ua.html` (UA), `sre-en.html` (EN) — technical emphasis
+- **PM/Manager:** `manager-ua.html` (UA), `manager-en.html` (EN) — leadership emphasis
+- **Donate:** `donate.html` — fundraiser page for 159 ОМБР pickup truck ($10,000 USD goal)
 
 ## Architecture
 
@@ -14,13 +18,32 @@ Personal website for Iurii Klekovkin hosted on GitHub Pages at `cv.klekovkin.com
 - **GitHub Pages** — push to `master` branch, served from root automatically
 - **Custom domain** — `cv.klekovkin.com.ua` (CNAME file)
 
+## CV pages — structure
+
+### Navigation rules
+- **Language toggle** on all CV pages: UA <-> EN (same direction)
+- **No direction cross-links** — pages do not link to other career directions
+
+### Content per direction
+- All 6 pages share the same experience timeline — difference is emphasis/keywords
+- **Middle:** broad ATS keywords, balanced descriptions, soft skills bars + technical skills list
+- **SRE:** infrastructure/DevOps/K8s-heavy descriptions, technical skills list prominent, soft skills minimal
+- **Manager:** leadership/process-heavy descriptions, soft skills bars prominent, technical skills compact
+- **Military service (159 ОМБР):** appears only on Ukrainian versions, hidden by default (visible on click)
+
+### Shared sidebar content (all 6 pages)
+- Contact: iurii@klekovkin.com.ua, +380 93 779 1847, in/klekovkin, depomytymoped
+- Education: Bachelor CS, KPI, 2001-2019
+- Languages: Ukrainian (Native), English (Professional), Russian (Beginner)
+- Interests: Continuous growth, AI revolution, Psychology and Therapy, Drones of any kind
+- Donate banner + footer link to donate.html
+
 ## Design system
 
-### CV page (`index.html`)
+### CV pages (all 6)
 - CSS Grid two-column layout (main + sidebar)
 - Color palette: teal/cyan (`--color-primary: #42A8C0`)
 - Gold donate banner in sidebar (full-width clickable `<a>` block)
-- Donate link in footer
 - Mobile breakpoint: 767px
 
 ### Donate page (`donate.html`)
@@ -36,12 +59,19 @@ Personal website for Iurii Klekovkin hosted on GitHub Pages at `cv.klekovkin.com
 
 | File | Purpose |
 |------|---------|
-| `index.html` | CV page |
-| `donate.html` | Donation/fundraiser page (4 payment methods: Monobank, PayPal USD/EUR, Crypto) |
+| `index.html` | CV — Middle direction, Ukrainian |
+| `en.html` | CV — Middle direction, English |
+| `sre-ua.html` | CV — SRE/DevOps direction, Ukrainian |
+| `sre-en.html` | CV — SRE/DevOps direction, English |
+| `manager-ua.html` | CV — PM/Manager direction, Ukrainian |
+| `manager-en.html` | CV — PM/Manager direction, English |
+| `donate.html` | Donation/fundraiser page |
 | `profile.png` | CV profile photo |
 | `159ombr-emblem.png` | Official 159 ОМБР emblem (from Wikimedia Commons) |
 | `soldier.jpg` | **TODO** — soldier photo for donate page |
 | `CNAME` | GitHub Pages domain: cv.klekovkin.com.ua |
+| `Klekovkin_Yuriy_CV_SRE_UA.pdf` | Source PDF for SRE/DevOps content (Ukrainian) |
+| `docs/superpowers/specs/2026-04-03-multi-cv-design.md` | Design spec for multi-CV structure |
 
 ## Donate page — placeholders to replace
 
@@ -78,5 +108,5 @@ Config in the `<script>` block at bottom of `donate.html`:
 - No build tools — edit HTML directly
 - No external JS/CSS libraries
 - Inline SVG icons (Font Awesome paths)
-- Both pages are self-contained — no shared CSS files
-- Ukrainian language primary on donate page, English secondary
+- All pages are self-contained — no shared CSS files
+- Ukrainian is the primary language (index.html is UA)

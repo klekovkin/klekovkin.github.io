@@ -1,13 +1,15 @@
 # cv.klekovkin.com.ua
 
-Personal CV page for Iurii Klekovkin.
+Personal CV and donation page for Iurii Klekovkin, hosted on GitHub Pages.
 
 ## Structure
 
-- `index.html` — the CV page (self-contained HTML + CSS, zero JavaScript)
-- `profile.png` — profile photo
+- `index.html` — CV page (self-contained HTML + CSS, zero JavaScript)
+- `donate.html` — Donation page for 159 OMBR pickup truck fundraiser
+- `profile.png` — Profile photo
+- `159ombr-emblem.png` — Official 159 OMBR emblem
 - `CNAME` — GitHub Pages custom domain config
-- `favicon.ico` / `favicon.png` — site icons
+- `favicon.ico` / `favicon.png` — Site icons
 
 ## Deployment
 
@@ -16,4 +18,4 @@ No build step required.
 
 ## Editing
 
-Edit `index.html` directly. All content and styling is in one file.
+Edit HTML files directly. All content and styling is embedded in each file.
