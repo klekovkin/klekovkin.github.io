@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -720,6 +720,10 @@
                 label.textContent = original;
                 btn.classList.remove('copied');
             }, 2000);
+        }).catch(function() {
+            var label = btn.querySelector('.copy-label');
+            label.textContent = 'Copy failed';
+            setTimeout(function() { label.textContent = 'Copy'; }, 2000);
         });
     });
 
