@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iurii Klekovkin — Site Reliability Engineer · DevOps Engineer</title>
+    <meta name="description" content="CV Iurii Klekovkin | Site Reliability Engineer | DevOps Engineer | Kubernetes, Terraform, AWS, EKS, CI/CD, ArgoCD, Prometheus, Grafana | Infrastructure as Code | Monitoring & Observability">
+    <meta name="author" content="Iurii Klekovkin">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Iurii Klekovkin — SRE / DevOps CV">
+    <meta property="og:description" content="Site Reliability Engineer · DevOps Engineer">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://cv.klekovkin.com.ua/sre-en.html">
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ======= Custom Properties ======= */
+        :root {
+            --color-primary: #42A8C0;
+            --color-primary-dark: #2d7788;
+            --color-primary-darker: #1a454f;
+            --color-text: #545E6C;
+            --color-text-dark: #3F4650;
+            --color-text-muted: #97AAC3;
+            --color-bg: #f5f5f5;
+            --color-white: #fff;
+            --color-skill-bar: #7bc2d3;
+            --color-sidebar-overlay: rgba(0, 0, 0, 0.2);
+            --color-sidebar-muted: rgba(255, 255, 255, 0.6);
+            --sidebar-width: 240px;
+            --max-width: 960px;
+        }
+
+        /* ======= Reset & Base ======= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            color: var(--color-text);
+            background: var(--color-bg);
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 30px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+        a { color: var(--color-primary-dark); transition: color 0.3s; }
+        a:hover { color: var(--color-primary-darker); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        /* ======= Layout ======= */
+        .cv-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr var(--sidebar-width);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ======= Main Content ======= */
+        .main-content {
+            background: var(--color-white);
+            padding: 60px;
+            order: -1;
+        }
+
+        .section { margin-bottom: 60px; page-break-inside: avoid; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-title {
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--color-primary-dark);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--color-white);
+        }
+
+        /* ======= Summary ======= */
+        .summary p { margin-bottom: 1em; }
+        .summary p:last-child { margin-bottom: 0; }
+
+        /* ======= Experience ======= */
+        .experience-item { margin-bottom: 30px; }
+        .experience-item:last-child { margin-bottom: 0; }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .job-title {
+            color: var(--color-text-dark);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .time {
+            color: var(--color-text-muted);
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .company {
+            color: var(--color-text-muted);
+            margin-bottom: 10px;
+        }
+
+        .details p { margin-bottom: 0.8em; }
+        .details p:last-child { margin-bottom: 0; }
+        .details ul { list-style: disc; margin-left: 20px; margin-bottom: 0.8em; }
+        .details ul:last-child { margin-bottom: 0; }
+        .details li { margin-bottom: 0.3em; }
+
+        /* ======= Military Service (collapsible) ======= */
+        .military-toggle {
+            background: none;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary-dark);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .military-toggle:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .military-details {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .military-details.open {
+            display: block;
+        }
+
+        /* ======= Skills ======= */
+        .skill-item {
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .skill-bar {
+            height: 12px;
+            background: var(--color-bg);
+            width: 100%;
+        }
+
+        .skill-bar-inner {
+            height: 12px;
+            background: var(--color-skill-bar);
+            width: 0;
+            animation: grow-bar 1s ease-out forwards;
+        }
+
+        @keyframes grow-bar {
+            to { width: var(--level); }
+        }
+
+        /* Technical skills list */
+        .tech-skills { margin-top: 30px; }
+        .tech-skills h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            margin-bottom: 8px;
+        }
+        .tech-skills ul {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+        .tech-skills li {
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative;
+        }
+        .tech-skills li::before {
+            content: "·";
+            position: absolute;
+            left: 4px;
+            font-weight: 700;
+        }
+
+        /* ======= Sidebar ======= */
+        .sidebar {
+            background: var(--color-primary);
+            color: var(--color-white);
+            min-height: 800px;
+        }
+
+        .sidebar a { color: var(--color-white); text-decoration: none; }
+        .sidebar a:hover { text-decoration: underline; color: var(--color-white); }
+
+        /* Profile */
+        .profile {
+            padding: 30px;
+            background: var(--color-sidebar-overlay);
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile .name {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .profile .tagline {
+            color: var(--color-sidebar-muted);
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* Sidebar blocks */
+        .sidebar-block {
+            padding: 30px;
+        }
+
+        .sidebar-block-title {
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            padding: 10px 30px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .lang-toggle a {
+            opacity: 0.7;
+        }
+
+        .lang-toggle a:hover {
+            opacity: 1;
+        }
+
+        .lang-toggle .active {
+            opacity: 1;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: default;
+        }
+
+        /* Contact */
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            word-break: break-word;
+        }
+
+        .contact-item:last-child { margin-bottom: 0; }
+
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            fill: var(--color-white);
+        }
+
+        /* Education */
+        .education-item { margin-bottom: 15px; }
+        .education-item:last-child { margin-bottom: 0; }
+
+        .degree {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .school {
+            color: var(--color-sidebar-muted);
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .education-dates {
+            color: var(--color-sidebar-muted);
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        /* Languages */
+        .lang-item { margin-bottom: 10px; }
+        .lang-item:last-child { margin-bottom: 0; }
+        .lang-level { color: var(--color-sidebar-muted); }
+
+        /* Interests */
+        .interest-item { margin-bottom: 10px; }
+        .interest-item:last-child { margin-bottom: 0; }
+
+        /* ======= Donate Banner ======= */
+        .donate-banner {
+            padding: 0;
+        }
+
+        .donate-banner a {
+            display: block;
+            background: #FBB03B;
+            color: #000080;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 14px 30px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .donate-banner a:hover {
+            background: #e09a2a;
+            text-decoration: none;
+            color: #000080;
+        }
+
+        /* ======= Footer ======= */
+        .cv-footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 30px;
+            padding-top: 60px;
+            text-align: center;
+            color: var(--color-text);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .cv-footer a {
+            font-weight: 500;
+        }
+
+        /* ======= Responsive ======= */
+        @media (max-width: 767px) {
+            body { padding: 15px; }
+
+            .cv-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                min-height: auto;
+                order: -1;
+            }
+
+            .main-content {
+                padding: 30px;
+                order: 0;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .time {
+                margin-left: 0;
+                margin-top: 4px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .skill-item {
+                display: flex;
+                align-items: center;
+                gap: 0;
+            }
+
+            .skill-name {
+                width: 30%;
+                flex-shrink: 0;
+                margin-bottom: 0;
+            }
+
+            .skill-bar {
+                width: 70%;
+            }
+        }
+
+        /* ======= Print ======= */
+        @media print {
+            body { padding: 0; background: white; font-size: 12px; }
+
+            .cv-wrapper {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .sidebar { background: var(--color-primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .profile { background: var(--color-sidebar-overlay) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar { background: var(--color-bg) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar-inner { background: var(--color-skill-bar) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
+
+            .section { margin-bottom: 30px; }
+            .main-content { padding: 30px; }
+            .cv-footer { padding-top: 20px; }
+
+            a { text-decoration: none !important; }
+            .donate-banner { display: none; }
+            .military-toggle { display: none; }
+            .military-details { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+    <main class="main-content">
+
+        <!-- Career Profile -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">
+                    <svg viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                </span>
+                Who am I
+            </h2>
+            <div class="summary">
+                <p><strong>Site Reliability Engineer</strong> with nearly 30 years of experience maintaining production IT services. Throughout years of continuous growth, developed and implemented processes as an engineer, gaining deep expertise in building and operating production-ready solutions at scale.</p>
+                <p>Specializing in <strong>Site Reliability Engineering</strong> with 5+ years of hands-on experience in Kubernetes orchestration, infrastructure-as-code (Terraform, Helm), and DevOps automation. Deep knowledge of monitoring systems (Prometheus, Grafana), cloud infrastructure (AWS, EKS), and CI/CD pipelines (ArgoCD, Spinnaker).</p>
+                <p>Ability to calmly and clearly explain complex technical concepts to diverse audiences. Experience coordinating high-load projects and geographically distributed teams.</p>
+                <p><strong>Seeking new opportunities in SRE/DevOps, using previous experience as a fulcrum.</strong></p>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">
+                    <svg viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg>
+                </span>
+                Experience
+            </h2>
+
+            <!-- NO military service on English pages -->
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Senior Production Reliability Engineer</h3>
+                    <span class="time">May 2021 - April 2025</span>
+                </div>
+                <div class="company">Ledger</div>
+                <div class="details">
+                    <ul>
+                        <li>Designed and maintained production infrastructure for a cryptocurrency SaaS platform serving millions of users</li>
+                        <li>Implemented infrastructure-as-code practices using Terraform and policy-as-code frameworks for SaaS environments</li>
+                        <li>Managed Kubernetes deployments on AWS EKS with Helm charts and ArgoCD/Spinnaker for continuous delivery</li>
+                        <li>Built comprehensive monitoring solutions with Prometheus and Grafana for real-time system observability</li>
+                        <li>Optimized CI/CD pipelines achieving faster, more reliable deployment cycles with reduced failure rates</li>
+                        <li>Conducted performance analysis and troubleshooting of high-load distributed systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Senior DevOps Engineer</h3>
+                    <span class="time">August 2019 - May 2021</span>
+                </div>
+                <div class="company">Ledger</div>
+                <div class="details">
+                    <ul>
+                        <li>Managed full AWS infrastructure including EKS clusters, networking, and security configurations</li>
+                        <li>Deployed and maintained Kubernetes workloads using Helm, implementing best practices for scaling</li>
+                        <li>Automated infrastructure provisioning with Terraform, Chef, and Ansible/SaltStack for consistent environments</li>
+                        <li>Collaborated with development teams to establish DevOps workflows and deployment standards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Co-founder & Infrastructure Engineer</h3>
+                    <span class="time">November 2022 - August 2025</span>
+                </div>
+                <div class="company">Astroquirks</div>
+                <div class="details">
+                    <ul>
+                        <li>Built and maintained validator infrastructure for Tendermint/Cosmos-based blockchains (Osmosis, Stargaze)</li>
+                        <li>Designed full technical stack for high-availability blockchain node operation with 99.9% uptime</li>
+                        <li>Implemented monitoring, alerting, and auto-recovery systems for critical infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Technical Support Manager</h3>
+                    <span class="time">October 2013 - October 2018</span>
+                </div>
+                <div class="company">PortaOne, Kyiv</div>
+                <div class="details">
+                    <ul>
+                        <li>Provided L3/L4 support for VoIP billing systems in production environments</li>
+                        <li>Managed complex software deployments and system integrations for global enterprise clients</li>
+                        <li>Established processes and standards for collaboration between Development, QA, and Product Management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Senior Support Engineer</h3>
+                    <span class="time">October 2008 - October 2013</span>
+                </div>
+                <div class="company">PortaOne, Kyiv</div>
+                <div class="details">
+                    <ul>
+                        <li>Advanced Linux/FreeBSD administration and troubleshooting of geo-redundant clustered systems</li>
+                        <li>Executed complex maintenance scenarios, software upgrades, and system migrations with minimal downtime</li>
+                        <li>Provided on-site technical consulting and installations for clients worldwide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Support Engineer</h3>
+                    <span class="time">2006 - 2008</span>
+                </div>
+                <div class="company">PortaOne, Kyiv</div>
+                <div class="details">
+                    <p>L2-L3 technical support of PortaOne products and related systems. System malfunction diagnostics and root cause analysis.</p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">Mozilla Community Representative in Ukraine</h3>
+                    <span class="time">2009 - 2019</span>
+                </div>
+                <div class="company">Mozilla</div>
+                <div class="details">
+                    <p>Localization and infrastructure contributor. Community Representative (2013-2019). Organized conferences and meetups. Owner of mozilla.org.ua domain.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">
+                    <svg viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7.7-17.4 13.9-25.2L48.5 213c-11.3-11.3-11.3-29.6 0-40.8l57.4-56.7c11.3-11.3 29.5-11.3 40.8 0l83.5 83.5c7.8-6.1 16.3-10.8 25.2-13.7c11.4-3.9 23.7-.8 32.2 7.7l30.9 30.9c5.7 5.7 8.7 13.5 8.4 21.6c19.4 14.6 34.5 34.4 43.5 57.5H480c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H64C46.3 32 32 46.3 32 64V352c0 17.7 14.3 32 32 32h92.5zM256 224a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-43.3 203.3l-20.6-20.6-76.2 76.2c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l76.2-76.2-20.6-20.6c-1.3-1.3-2.5-2.7-3.6-4.1zM393.4 307.2l-39.6-39.6c-3.3 5.7-7.2 11-11.7 15.5s-9.9 8.4-15.5 11.7l39.6 39.6 27.1-27.1z"/></svg>
+                </span>
+                Technical Skills
+            </h2>
+
+            <div class="tech-skills">
+                <h3>Cloud & Container Orchestration</h3>
+                <ul>
+                    <li>Kubernetes (EKS, RBAC, NetworkPolicy, ExternalSecrets), AWS (EC2, EKS, S3, CloudFormation), Docker</li>
+                </ul>
+                <h3>Infrastructure as Code</h3>
+                <ul>
+                    <li>Terraform, Helm, Chef, Ansible/SaltStack</li>
+                </ul>
+                <h3>CI/CD & GitOps</h3>
+                <ul>
+                    <li>ArgoCD, Spinnaker, GitHub Actions</li>
+                </ul>
+                <h3>Monitoring & Observability</h3>
+                <ul>
+                    <li>Prometheus, Grafana, logging, tracing, alerting, RED/DORA metrics</li>
+                </ul>
+                <h3>Security & Access Management</h3>
+                <ul>
+                    <li>Vault, OAuth2, OIDC, authentication systems</li>
+                </ul>
+                <h3>Systems Administration</h3>
+                <ul>
+                    <li>Linux (Ubuntu, RHEL, LFS), FreeBSD, networking, performance tuning, troubleshooting</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <aside class="sidebar">
+        <!-- Profile -->
+        <div class="profile">
+            <img class="profile-photo" src="profile.png" alt="Iurii Klekovkin" width="120" height="120">
+            <h1 class="name">Iurii Klekovkin</h1>
+            <p class="tagline">Site Reliability Engineer · DevOps Engineer</p>
+        </div>
+
+        <!-- Language toggle -->
+        <div class="lang-toggle">
+            <a href="sre-ua.html">UA</a> | <span class="active">EN</span>
+        </div>
+
+        <!-- Donate Banner -->
+        <div class="donate-banner">
+            <a href="donate.html">Support UAF / Підтримати ЗСУ</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="sidebar-block">
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                <a href="mailto:iurii@klekovkin.com.ua">iurii@klekovkin.com.ua</a>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                <a href="tel:+380937791847">+380 93 779 1847</a>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                <a href="https://linkedin.com/in/klekovkin">in/klekovkin</a>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.8-14.9-112.8-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                <a href="https://github.com/depomytymoped">depomytymoped</a>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="sidebar-block">
+            <h2 class="sidebar-block-title">Education</h2>
+            <div class="education-item">
+                <div class="degree">Bachelor in Computer Science</div>
+                <div class="school">NTUU "Igor Sikorsky Kyiv Polytechnic Institute"</div>
+                <div class="education-dates">2001 - 2019</div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="sidebar-block">
+            <h2 class="sidebar-block-title">Languages</h2>
+            <div class="lang-item">Ukrainian <span class="lang-level">(Native)</span></div>
+            <div class="lang-item">English <span class="lang-level">(Professional)</span></div>
+            <div class="lang-item">Russian <span class="lang-level">(Beginner)</span></div>
+        </div>
+
+        <!-- Interests -->
+        <div class="sidebar-block">
+            <h2 class="sidebar-block-title">Interests</h2>
+            <div class="interest-item">Continuous growth</div>
+            <div class="interest-item">AI revolution</div>
+            <div class="interest-item">Psychology and Therapy</div>
+            <div class="interest-item">Drones of any kind</div>
+        </div>
+    </aside>
+</div>
+
+<footer class="cv-footer">
+    <p><a href="donate.html">Support Ukrainian Soldier / Підтримати солдата ЗСУ</a></p>
+    <small>Designed with care. &copy; Iurii Klekovkin</small>
+</footer>
+
+</body>
+</html>
