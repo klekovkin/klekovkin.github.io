@@ -17,27 +17,47 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ======= Custom Properties ======= */
+        /* ===== Variables ===== */
         :root {
-            --color-primary: #42A8C0;
-            --color-primary-dark: #2d7788;
-            --color-primary-darker: #1a454f;
-            --color-text: #545E6C;
-            --color-text-dark: #3F4650;
-            --color-text-muted: #97AAC3;
-            --color-bg: #f5f5f5;
-            --color-white: #fff;
-            --color-skill-bar: #7bc2d3;
-            --color-sidebar-overlay: rgba(0, 0, 0, 0.2);
-            --color-sidebar-muted: rgba(255, 255, 255, 0.6);
-            --sidebar-width: 240px;
-            --max-width: 960px;
+            --color-primary: #2A9D8F;
+            --color-primary-dark: #1E7A6E;
+            --color-primary-darker: #145650;
+            --color-text: #3B4252;
+            --color-text-dark: #2E3440;
+            --color-text-muted: #8B95A5;
+            --color-bg: #F5F5F5;
+            --color-white: #FFFFFF;
+            --color-skill-bar: #6EC6B8;
+            --color-sidebar: #264653;
+            --color-sidebar-overlay: rgba(0, 0, 0, 0.15);
+            --color-sidebar-muted: rgba(255, 255, 255, 0.55);
+            --color-donate-bg: #E76F51;
+            --color-donate-hover: #D45A3C;
+            --sidebar-width: 250px;
+            --max-width: 980px;
         }
 
-        /* ======= Reset & Base ======= */
+        /* ===== Dark theme ===== */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #1A1D24;
+                --color-white: #22262E;
+                --color-text: #D8DEE9;
+                --color-text-dark: #ECEFF4;
+                --color-text-muted: #6B7894;
+                --color-primary: #56C4B4;
+                --color-primary-dark: #7AD4C8;
+                --color-primary-darker: #A0E4DA;
+                --color-skill-bar: #56C4B4;
+                --color-sidebar: #161920;
+                --color-sidebar-overlay: rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* ===== Reset ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
@@ -45,43 +65,45 @@
             color: var(--color-text);
             background: var(--color-bg);
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
             padding: 30px;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4, h5, h6 { font-weight: 700; }
-        a { color: var(--color-primary-dark); transition: color 0.3s; }
+        h1, h2, h3 { font-family: 'Roboto Slab', 'Georgia', serif; }
+        a { color: var(--color-primary-dark); text-decoration: none; transition: color 0.2s; }
         a:hover { color: var(--color-primary-darker); }
         ul { list-style: none; }
         img { max-width: 100%; height: auto; }
 
-        /* ======= Layout ======= */
+        /* ===== Layout ===== */
         .cv-wrapper {
             max-width: var(--max-width);
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr var(--sidebar-width);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
         }
 
-        /* ======= Main Content ======= */
+        /* ===== Main ===== */
         .main-content {
             background: var(--color-white);
-            padding: 60px;
+            padding: 52px 56px;
             order: -1;
         }
 
-        .section { margin-bottom: 60px; page-break-inside: avoid; }
+        .section { margin-bottom: 48px; page-break-inside: avoid; }
         .section:last-child { margin-bottom: 0; }
 
         .section-title {
             text-transform: uppercase;
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 600;
             color: var(--color-primary-dark);
             margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-primary);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -90,7 +112,7 @@
         .section-icon {
             width: 30px;
             height: 30px;
-            background: var(--color-primary-dark);
+            background: var(--color-primary);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
@@ -98,18 +120,20 @@
             flex-shrink: 0;
         }
 
-        .section-icon svg {
-            width: 14px;
-            height: 14px;
-            fill: var(--color-white);
-        }
+        .section-icon svg { width: 14px; height: 14px; fill: #fff; }
 
-        /* ======= Summary ======= */
-        .summary p { margin-bottom: 1em; }
+        /* ===== Summary ===== */
+        .summary { font-size: 14px; line-height: 1.75; color: var(--color-text); }
+        .summary p { margin-bottom: 0.9em; }
         .summary p:last-child { margin-bottom: 0; }
+        .summary strong { color: var(--color-text-dark); font-weight: 700; }
 
-        /* ======= Experience ======= */
-        .experience-item { margin-bottom: 30px; }
+        /* ===== Experience ===== */
+        .experience-item {
+            margin-bottom: 28px;
+            padding-left: 16px;
+            border-left: 3px solid var(--color-primary);
+        }
         .experience-item:last-child { margin-bottom: 0; }
 
         .experience-header {
@@ -117,336 +141,213 @@
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 2px;
+            gap: 12px;
         }
 
         .job-title {
             color: var(--color-text-dark);
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .time {
             color: var(--color-text-muted);
             white-space: nowrap;
-            margin-left: 10px;
+            font-size: 13px;
         }
 
         .company {
-            color: var(--color-text-muted);
-            margin-bottom: 10px;
+            color: var(--color-primary-dark);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
-        .details p { margin-bottom: 0.8em; }
+        .details { color: var(--color-text); font-size: 13px; line-height: 1.65; }
+        .details p { margin-bottom: 0.7em; }
         .details p:last-child { margin-bottom: 0; }
-        .details ul { list-style: disc; margin-left: 20px; margin-bottom: 0.8em; }
+        .details ul { list-style: disc; margin-left: 18px; margin-bottom: 0.7em; }
         .details ul:last-child { margin-bottom: 0; }
-        .details li { margin-bottom: 0.3em; }
+        .details li { margin-bottom: 3px; }
 
-        /* ======= Military Service (collapsible) ======= */
+        /* ===== Military ===== */
         .military-toggle {
             background: none;
             border: 1px solid var(--color-primary);
             color: var(--color-primary-dark);
-            font-family: inherit;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            padding: 8px 16px;
+            padding: 6px 16px;
             border-radius: 4px;
             cursor: pointer;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
             transition: background 0.2s, color 0.2s;
         }
+        .military-toggle:hover { background: var(--color-primary); color: #fff; }
+        .military-details { display: none; margin-bottom: 28px; }
+        .military-details.open { display: block; }
 
-        .military-toggle:hover {
-            background: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .military-details {
-            display: none;
-            margin-bottom: 30px;
-        }
-
-        .military-details.open {
-            display: block;
-        }
-
-        /* ======= Skills ======= */
-        .skill-item {
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-
-        .skill-name {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .skill-bar {
-            height: 12px;
-            background: var(--color-bg);
-            width: 100%;
-        }
-
+        /* ===== Skills ===== */
+        .skill-item { margin-bottom: 15px; overflow: hidden; }
+        .skill-name { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--color-text-dark); }
+        .skill-bar { height: 10px; background: var(--color-bg); width: 100%; border-radius: 5px; }
         .skill-bar-inner {
-            height: 12px;
+            height: 10px;
             background: var(--color-skill-bar);
+            border-radius: 5px;
             width: 0;
-            animation: grow-bar 1s ease-out forwards;
+            animation: grow-bar 0.8s ease-out forwards;
         }
+        @keyframes grow-bar { to { width: var(--level); } }
 
-        @keyframes grow-bar {
-            to { width: var(--level); }
-        }
-
-        /* Technical skills list */
-        .tech-skills { margin-top: 30px; }
-        .tech-skills h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--color-text-dark);
-            margin-bottom: 8px;
-        }
-        .tech-skills ul {
-            list-style: none;
-            margin-bottom: 12px;
-        }
+        .tech-skills { margin-top: 28px; }
+        .tech-skills h3 { font-size: 13px; font-weight: 600; color: var(--color-text-dark); margin-bottom: 6px; }
+        .tech-skills ul { list-style: none; margin-bottom: 12px; }
         .tech-skills li {
-            margin-bottom: 4px;
-            padding-left: 16px;
+            margin-bottom: 3px;
+            padding-left: 14px;
             position: relative;
+            font-size: 13px;
         }
         .tech-skills li::before {
-            content: "·";
+            content: "\00B7";
             position: absolute;
             left: 4px;
             font-weight: 700;
+            color: var(--color-primary);
         }
 
-        /* ======= Sidebar ======= */
+        /* ===== Sidebar ===== */
         .sidebar {
-            background: var(--color-primary);
-            color: var(--color-white);
+            background: var(--color-sidebar);
+            color: #fff;
             min-height: 800px;
         }
 
-        .sidebar a { color: var(--color-white); text-decoration: none; }
-        .sidebar a:hover { text-decoration: underline; color: var(--color-white); }
+        .sidebar a { color: #fff; text-decoration: none; }
+        .sidebar a:hover { text-decoration: underline; }
 
-        /* Profile */
         .profile {
-            padding: 30px;
+            padding: 36px 28px 28px;
             background: var(--color-sidebar-overlay);
             text-align: center;
         }
 
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 115px;
+            height: 115px;
             border-radius: 50%;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            border: 3px solid rgba(255,255,255,0.2);
         }
 
         .profile .name {
-            font-size: 32px;
-            font-weight: 900;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .profile .tagline {
             color: var(--color-sidebar-muted);
-            font-size: 16px;
-            font-weight: 400;
+            font-size: 13px;
+            font-weight: 300;
         }
 
-        /* Sidebar blocks */
-        .sidebar-block {
-            padding: 30px;
-        }
-
-        .sidebar-block-title {
-            text-transform: uppercase;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        /* Language toggle */
         .lang-toggle {
-            padding: 10px 30px;
+            padding: 10px 28px;
             text-align: center;
             font-size: 13px;
             font-weight: 500;
         }
+        .lang-toggle a { opacity: 0.6; }
+        .lang-toggle a:hover { opacity: 1; }
+        .lang-toggle .active { opacity: 1; font-weight: 700; cursor: default; }
 
-        .lang-toggle a {
-            opacity: 0.7;
-        }
-
-        .lang-toggle a:hover {
-            opacity: 1;
-        }
-
-        .lang-toggle .active {
-            opacity: 1;
+        .donate-banner { padding: 0; }
+        .donate-banner a {
+            display: block;
+            background: var(--color-donate-bg);
+            color: #fff;
             font-weight: 700;
+            font-size: 13px;
+            padding: 14px 28px;
+            text-align: center;
             text-decoration: none;
-            cursor: default;
+            transition: background 0.2s;
+        }
+        .donate-banner a:hover { background: var(--color-donate-hover); text-decoration: none; }
+
+        .sidebar-block { padding: 24px 28px; }
+        .sidebar-block-title {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
         }
 
-        /* Contact */
         .contact-item {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
             word-break: break-word;
+            font-size: 13px;
         }
-
         .contact-item:last-child { margin-bottom: 0; }
+        .contact-icon { width: 16px; height: 16px; flex-shrink: 0; fill: rgba(255,255,255,0.7); }
 
-        .contact-icon {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            fill: var(--color-white);
-        }
-
-        /* Education */
-        .education-item { margin-bottom: 15px; }
+        .education-item { margin-bottom: 12px; }
         .education-item:last-child { margin-bottom: 0; }
+        .degree { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .school { color: var(--color-sidebar-muted); font-size: 12px; }
+        .education-dates { color: var(--color-sidebar-muted); font-size: 12px; }
 
-        .degree {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .school {
-            color: var(--color-sidebar-muted);
-            font-weight: 500;
-            font-size: 13px;
-        }
-
-        .education-dates {
-            color: var(--color-sidebar-muted);
-            font-weight: 500;
-            font-size: 13px;
-        }
-
-        /* Languages */
-        .lang-item { margin-bottom: 10px; }
+        .lang-item { margin-bottom: 8px; font-size: 13px; }
         .lang-item:last-child { margin-bottom: 0; }
         .lang-level { color: var(--color-sidebar-muted); }
 
-        /* Interests */
-        .interest-item { margin-bottom: 10px; }
+        .interest-item { margin-bottom: 8px; font-size: 13px; }
         .interest-item:last-child { margin-bottom: 0; }
 
-        /* ======= Donate Banner ======= */
-        .donate-banner {
-            padding: 0;
-        }
-
-        .donate-banner a {
-            display: block;
-            background: #FBB03B;
-            color: #000080;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 14px 30px;
-            text-align: center;
-            transition: background 0.3s;
-        }
-
-        .donate-banner a:hover {
-            background: #e09a2a;
-            text-decoration: none;
-            color: #000080;
-        }
-
-        /* ======= Footer ======= */
+        /* ===== Footer ===== */
         .cv-footer {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 30px;
-            padding-top: 60px;
+            padding: 28px 20px;
+            padding-top: 48px;
             text-align: center;
-            color: var(--color-text);
-            font-size: 13px;
-            line-height: 1.6;
+            color: var(--color-text-muted);
+            font-size: 12px;
+            line-height: 1.8;
         }
+        .cv-footer a { font-weight: 500; color: var(--color-primary-dark); }
 
-        .cv-footer a {
-            font-weight: 500;
-        }
-
-        /* ======= Responsive ======= */
+        /* ===== Responsive ===== */
         @media (max-width: 767px) {
-            body { padding: 15px; }
-
-            .cv-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                min-height: auto;
-                order: -1;
-            }
-
-            .main-content {
-                padding: 30px;
-                order: 0;
-            }
-
-            .experience-header {
-                flex-direction: column;
-            }
-
-            .time {
-                margin-left: 0;
-                margin-top: 4px;
-            }
+            body { padding: 12px; }
+            .cv-wrapper { grid-template-columns: 1fr; }
+            .sidebar { min-height: auto; order: -1; }
+            .main-content { padding: 32px 24px; order: 0; }
+            .experience-header { flex-direction: column; gap: 2px; }
         }
 
         @media (min-width: 992px) {
-            .skill-item {
-                display: flex;
-                align-items: center;
-                gap: 0;
-            }
-
-            .skill-name {
-                width: 30%;
-                flex-shrink: 0;
-                margin-bottom: 0;
-            }
-
-            .skill-bar {
-                width: 70%;
-            }
+            .skill-item { display: flex; align-items: center; gap: 0; }
+            .skill-name { width: 30%; flex-shrink: 0; margin-bottom: 0; }
+            .skill-bar { width: 70%; }
         }
 
-        /* ======= Print ======= */
+        /* ===== Print ===== */
         @media print {
             body { padding: 0; background: white; font-size: 12px; }
-
-            .cv-wrapper {
-                box-shadow: none;
-                max-width: 100%;
-            }
-
-            .sidebar { background: var(--color-primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .profile { background: var(--color-sidebar-overlay) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .skill-bar { background: var(--color-bg) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .skill-bar-inner { background: var(--color-skill-bar) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
-
-            .section { margin-bottom: 30px; }
-            .main-content { padding: 30px; }
-            .cv-footer { padding-top: 20px; }
-
+            .cv-wrapper { box-shadow: none; max-width: 100%; }
+            .main-content { background: white; }
+            .sidebar { background: var(--color-sidebar) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar-inner { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
+            .section { margin-bottom: 24px; }
+            .main-content { padding: 28px; }
             a { text-decoration: none !important; }
             .donate-banner { display: none; }
             .military-toggle { display: none; }
@@ -485,7 +386,7 @@
             </h2>
 
             <!-- Military service — hidden by default -->
-            <button class="military-toggle" onclick="var d=document.querySelector('.military-details');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'▾ Військова служба':'▸ Військова служба';">▸ Військова служба</button>
+            <button class="military-toggle" aria-expanded="false" onclick="var d=document.querySelector('.military-details');d.classList.toggle('open');var o=d.classList.contains('open');this.textContent=o?'▾ Військова служба':'▸ Військова служба';this.setAttribute('aria-expanded',o);">▸ Військова служба</button>
 
             <div class="military-details">
                 <div class="experience-item">
@@ -692,6 +593,7 @@
 
         <!-- Контакти -->
         <div class="sidebar-block">
+            <h2 class="sidebar-block-title">Контакти</h2>
             <div class="contact-item">
                 <svg class="contact-icon" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                 <a href="mailto:iurii@klekovkin.com.ua">iurii@klekovkin.com.ua</a>
