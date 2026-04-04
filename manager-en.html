@@ -309,17 +309,60 @@
             .skill-bar { width: 70%; }
         }
 
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
         @media print {
-            body { padding: 0; background: white; font-size: 12px; }
-            .cv-wrapper { box-shadow: none; max-width: 100%; }
-            .main-content { background: white; }
-            .sidebar { background: var(--color-sidebar) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body { padding: 0; background: white; font-size: 11px; color: #2E3440; }
+
+            .cv-wrapper {
+                box-shadow: none;
+                max-width: 100%;
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                background: white;
+                padding: 0;
+                order: 0;
+            }
+
+            .sidebar {
+                background: var(--color-sidebar) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                min-height: auto;
+                order: -1;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+            }
+
+            .profile {
+                grid-column: 1 / -1;
+            }
+
+            .lang-toggle { display: none; }
+
+            .section { margin-bottom: 16px; break-inside: avoid; }
+            .experience-item { break-inside: avoid; margin-bottom: 16px; }
+            .section-title { font-size: 16px; margin-bottom: 12px; padding-bottom: 6px; }
+            .job-title { font-size: 14px; }
+            .details { font-size: 12px; }
+            .summary { font-size: 12px; }
+            .summary p { margin-bottom: 0.5em; }
+
             .skill-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .skill-bar-inner { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
-            .section { margin-bottom: 24px; }
-            .main-content { padding: 28px; }
-            a { text-decoration: none !important; }
+
+            .section-icon { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .section-icon svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+            a { text-decoration: none !important; color: inherit !important; }
             .donate-banner { display: none; }
+            .cv-footer { display: none; }
         }
     </style>
 </head>
@@ -330,7 +373,7 @@
 
         <section class="section">
             <h2 class="section-title">
-                <span class="section-icon"><svg viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span>
+                <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span>
                 Who am I
             </h2>
             <div class="summary">
@@ -343,7 +386,7 @@
 
         <section class="section">
             <h2 class="section-title">
-                <span class="section-icon"><svg viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg></span>
+                <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg></span>
                 Experience
             </h2>
 
@@ -446,7 +489,7 @@
 
         <section class="section">
             <h2 class="section-title">
-                <span class="section-icon"><svg viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7.7-17.4 13.9-25.2L48.5 213c-11.3-11.3-11.3-29.6 0-40.8l57.4-56.7c11.3-11.3 29.5-11.3 40.8 0l83.5 83.5c7.8-6.1 16.3-10.8 25.2-13.7c11.4-3.9 23.7-.8 32.2 7.7l30.9 30.9c5.7 5.7 8.7 13.5 8.4 21.6c19.4 14.6 34.5 34.4 43.5 57.5H480c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H64C46.3 32 32 46.3 32 64V352c0 17.7 14.3 32 32 32h92.5zM256 224a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-43.3 203.3l-20.6-20.6-76.2 76.2c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l76.2-76.2-20.6-20.6c-1.3-1.3-2.5-2.7-3.6-4.1zM393.4 307.2l-39.6-39.6c-3.3 5.7-7.2 11-11.7 15.5s-9.9 8.4-15.5 11.7l39.6 39.6 27.1-27.1z"/></svg></span>
+                <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7.7-17.4 13.9-25.2L48.5 213c-11.3-11.3-11.3-29.6 0-40.8l57.4-56.7c11.3-11.3 29.5-11.3 40.8 0l83.5 83.5c7.8-6.1 16.3-10.8 25.2-13.7c11.4-3.9 23.7-.8 32.2 7.7l30.9 30.9c5.7 5.7 8.7 13.5 8.4 21.6c19.4 14.6 34.5 34.4 43.5 57.5H480c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H64C46.3 32 32 46.3 32 64V352c0 17.7 14.3 32 32 32h92.5zM256 224a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-43.3 203.3l-20.6-20.6-76.2 76.2c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l76.2-76.2-20.6-20.6c-1.3-1.3-2.5-2.7-3.6-4.1zM393.4 307.2l-39.6-39.6c-3.3 5.7-7.2 11-11.7 15.5s-9.9 8.4-15.5 11.7l39.6 39.6 27.1-27.1z"/></svg></span>
                 Skills &amp; Proficiency
             </h2>
 
