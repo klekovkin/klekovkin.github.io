@@ -30,12 +30,12 @@
             --sidebar-divider: rgba(255,255,255,0.08);
             --text: #2C3340;
             --text-secondary: #5A6270;
-            --text-muted: #8D95A2;
+            --text-muted: #6B7280;
             --accent: #2D8CFF;
             --accent-hover: #1A6FD4;
             --accent-dim: rgba(45,140,255,0.08);
-            --donate-bg: #E55934;
-            --donate-hover: #C94A2A;
+            --donate-bg: #C43E1A;
+            --donate-hover: #A83415;
             --grid-line: rgba(45,140,255,0.07);
             --grid-dot: rgba(45,140,255,0.12);
             --section-line: rgba(45,140,255,0.18);
@@ -63,12 +63,12 @@
                 --sidebar-divider: rgba(255,255,255,0.06);
                 --text: #D6DDE8;
                 --text-secondary: #8D97A8;
-                --text-muted: #5A6475;
+                --text-muted: #8490A0;
                 --accent: #5BA3FF;
                 --accent-hover: #7DB8FF;
                 --accent-dim: rgba(91,163,255,0.08);
-                --donate-bg: #E55934;
-                --donate-hover: #FF6B42;
+                --donate-bg: #C43E1A;
+                --donate-hover: #E55934;
                 --grid-line: rgba(91,163,255,0.04);
                 --grid-dot: rgba(91,163,255,0.08);
                 --section-line: rgba(91,163,255,0.12);
@@ -706,7 +706,7 @@
             </h2>
 
             <!-- Military service — hidden by default -->
-            <button class="military-toggle" onclick="var d=document.querySelector('.military-details');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'▾ Військова служба':'▸ Військова служба';">▸ Військова служба</button>
+            <button class="military-toggle" aria-expanded="false" onclick="var d=document.querySelector('.military-details');d.classList.toggle('open');var o=d.classList.contains('open');this.textContent=o?'▾ Військова служба':'▸ Військова служба';this.setAttribute('aria-expanded',o);">▸ Військова служба</button>
 
             <div class="military-details">
                 <div class="experience-item">
