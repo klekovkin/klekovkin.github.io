@@ -167,24 +167,6 @@
         .details ul:last-child { margin-bottom: 0; }
         .details li { margin-bottom: 3px; }
 
-        /* Military */
-        .military-toggle {
-            background: none;
-            border: 2px solid var(--color-primary);
-            color: var(--color-primary);
-            font-family: 'Lato', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 7px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-bottom: 30px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .military-toggle:hover { background: var(--color-primary); color: #fff; }
-        .military-details { display: none; margin-bottom: 30px; }
-        .military-details.open { display: block; }
-
         /* Skills */
         .skill-item { margin-bottom: 15px; overflow: hidden; }
         .skill-name { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--color-text-dark); }
@@ -346,8 +328,7 @@
             .main-content { padding: 28px; }
             a { text-decoration: none !important; }
             .donate-banner { display: none; }
-            .military-toggle { display: none; }
-            .military-details { display: block !important; }
+
         }
     </style>
 </head>
@@ -374,15 +355,6 @@
                 <span class="section-icon"><svg viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg></span>
                 Досвід
             </h2>
-
-            <button class="military-toggle" aria-expanded="false" onclick="var d=document.querySelector('.military-details');d.classList.toggle('open');var o=d.classList.contains('open');this.textContent=o?'▾ Військова служба':'▸ Військова служба';this.setAttribute('aria-expanded',o);">▸ Військова служба</button>
-            <div class="military-details">
-                <div class="experience-item">
-                    <div class="experience-header"><h3 class="job-title">Старший солдат, старший оператор відділення електронної підтримки</h3><span class="time">Червень 2025 - сьогодення</span></div>
-                    <div class="company">159 ОМБр, в/ч А5000</div>
-                    <div class="details"><ul><li>Керую засобом пеленгації ТСІ на Харківському напрямку</li><li>Досвід автономної роботи на реальній позиції</li><li>Досвід бойової роботи в системах ситуаційної обізнаності Delta/Айсберг</li><li>Вдосконалив навички пояснювати складні речі простими словами</li></ul></div>
-                </div>
-            </div>
 
             <div class="experience-item">
                 <div class="experience-header"><h3 class="job-title">Senior Production Reliability Engineer</h3><span class="time">Травень 2021 - Квітень 2025</span></div>
