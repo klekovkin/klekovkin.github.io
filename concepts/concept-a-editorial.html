@@ -3,22 +3,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Юрій Клековкін — Site Reliability Engineer · DevOps Engineer</title>
-    <meta name="description" content="CV Юрій Клековкін | Site Reliability Engineer | DevOps Engineer | Kubernetes, Terraform, AWS, EKS, CI/CD, ArgoCD, Prometheus, Grafana | Infrastructure as Code | Моніторинг та спостережуваність">
+    <title>Юрій Клековкін — SRE · DevOps · Управління командами</title>
+    <meta name="description" content="CV Юрій Клековкін | Site Reliability Engineer | DevOps Engineer | Управління командами | Kubernetes, Terraform, AWS, CI/CD | Менеджмент, оптимізація процесів">
     <meta name="author" content="Iurii Klekovkin">
 
-    <meta property="og:title" content="Юрій Клековкін — SRE / DevOps CV">
-    <meta property="og:description" content="Site Reliability Engineer · DevOps Engineer">
+    <meta property="og:title" content="Юрій Клековкін — CV">
+    <meta property="og:description" content="SRE · DevOps · Управління командами">
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://cv.klekovkin.com.ua/sre-ua.html">
+    <meta property="og:url" content="https://cv.klekovkin.com.ua/">
 
-    <link rel="icon" href="favicon.ico">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* ===== CONCEPT A: "Refined Original" =====
+         * Evolution of the original teal design.
+         * Same clean structure, same Roboto body.
+         * Roboto Slab for headings (family consistency, adds gravitas).
+         * Deeper teal palette. Subtle left accent border on experience.
+         * Dark/light theme via prefers-color-scheme.
+         */
+
         :root {
             --color-primary: #2A9D8F;
             --color-primary-dark: #1E7A6E;
@@ -81,6 +89,7 @@
             overflow: hidden;
         }
 
+        /* ===== Main ===== */
         .main-content {
             background: var(--color-white);
             padding: 52px 56px;
@@ -116,11 +125,13 @@
 
         .section-icon svg { width: 14px; height: 14px; fill: #fff; }
 
+        /* Summary */
         .summary { font-size: 14px; line-height: 1.75; color: var(--color-text); }
         .summary p { margin-bottom: 0.9em; }
         .summary p:last-child { margin-bottom: 0; }
         .summary strong { color: var(--color-text-dark); font-weight: 700; }
 
+        /* Experience */
         .experience-item {
             margin-bottom: 28px;
             padding-left: 16px;
@@ -162,6 +173,7 @@
         .details ul:last-child { margin-bottom: 0; }
         .details li { margin-bottom: 3px; }
 
+        /* Military */
         .military-toggle {
             background: none;
             border: 1px solid var(--color-primary);
@@ -178,6 +190,7 @@
         .military-details { display: none; margin-bottom: 28px; }
         .military-details.open { display: block; }
 
+        /* Skills */
         .skill-item { margin-bottom: 15px; overflow: hidden; }
         .skill-name { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--color-text-dark); }
         .skill-bar { height: 10px; background: var(--color-bg); width: 100%; border-radius: 5px; }
@@ -207,6 +220,7 @@
             color: var(--color-primary);
         }
 
+        /* ===== Sidebar ===== */
         .sidebar {
             background: var(--color-sidebar);
             color: #fff;
@@ -311,6 +325,7 @@
         }
         .cv-footer a { font-weight: 500; color: var(--color-primary-dark); }
 
+        /* Responsive */
         @media (max-width: 767px) {
             body { padding: 12px; }
             .cv-wrapper { grid-template-columns: 1fr; }
@@ -325,57 +340,18 @@
             .skill-bar { width: 70%; }
         }
 
-        @page { size: A4; margin: 10mm 8mm; }
-
+        /* Print */
         @media print {
-            body { padding: 0; background: white; font-size: 10px; color: #2E3440; line-height: 1.4; }
-
+            body { padding: 0; background: white; font-size: 12px; }
             .cv-wrapper { box-shadow: none; max-width: 100%; }
-            .main-content { background: white; padding: 20px 24px; }
-
-            .sidebar {
-                background: var(--color-sidebar) !important;
-                -webkit-print-color-adjust: exact; print-color-adjust: exact;
-                min-height: auto;
-            }
-
-            .profile { padding: 20px 16px 14px; }
-            .profile-photo { width: 80px; height: 80px; margin-bottom: 10px; }
-            .profile .name { font-size: 18px; margin-bottom: 4px; }
-            .profile .tagline { font-size: 11px; }
-            .sidebar-block { padding: 12px 16px; }
-            .sidebar-block-title { font-size: 11px; margin-bottom: 8px; }
-            .contact-item { margin-bottom: 6px; font-size: 11px; }
-            .contact-icon { width: 12px; height: 12px; }
-            .lang-toggle { display: none; }
-
-            .section { margin-bottom: 12px; break-inside: avoid; }
-            .section-title { font-size: 13px; margin-bottom: 8px; padding-bottom: 4px; }
-            .section-icon { width: 22px; height: 22px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .section-icon svg { width: 11px; height: 11px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-            .experience-item { break-inside: avoid; margin-bottom: 10px; padding-left: 10px; border-left-width: 2px; }
-            .job-title { font-size: 12px; }
-            .time { font-size: 10px; }
-            .company { font-size: 10px; margin-bottom: 4px; }
-            .details { font-size: 10px; line-height: 1.4; }
-            .details li { margin-bottom: 1px; }
-            .details ul { margin-bottom: 0.3em; }
-
-            .summary { font-size: 10px; line-height: 1.4; }
-            .summary p { margin-bottom: 0.3em; }
-
-            .skill-item { margin-bottom: 8px; }
-            .skill-name { font-size: 11px; margin-bottom: 3px; }
-            .skill-bar { height: 6px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .skill-bar-inner { height: 6px; -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
-            .tech-skills { margin-top: 12px; }
-            .tech-skills h3 { font-size: 10px; margin-bottom: 3px; }
-            .tech-skills li { font-size: 10px; margin-bottom: 1px; }
-
-            a { text-decoration: none !important; color: inherit !important; }
+            .main-content { background: white; }
+            .sidebar { background: var(--color-sidebar) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar-inner { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
+            .section { margin-bottom: 24px; }
+            .main-content { padding: 28px; }
+            a { text-decoration: none !important; }
             .donate-banner { display: none; }
-            .cv-footer { display: none; }
             .military-toggle { display: none; }
             .military-details { display: block !important; }
         }
@@ -388,20 +364,20 @@
 
         <section class="section">
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span>
+                <span class="section-icon"><svg viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span>
                 Хто я
             </h2>
             <div class="summary">
-                <p><strong>Site Reliability Engineer</strong> з майже 30-річним досвідом підтримки виробничих IT-сервісів. Протягом усіх років безперервного зростання розробляв та впроваджував процеси як інженер, здобуваючи глибоку експертизу в побудові та експлуатації production-ready рішень на масштабі.</p>
+                <p><strong>Зрілий, широкомислячий інженер та менеджер</strong> з майже 30-річним досвідом у IT — від технічної підтримки до управління командами та побудови production-ready інфраструктури на масштабі. Протягом усіх років безперервного зростання розробляв та впроваджував процеси як менеджер і як інженер.</p>
                 <p>Спеціалізуюся на <strong>Site Reliability Engineering</strong> з понад 5-річним практичним досвідом оркестрації Kubernetes, infrastructure-as-code (Terraform, Helm) та автоматизації DevOps. Глибоке знання систем моніторингу (Prometheus, Grafana), хмарної інфраструктури (AWS, EKS) та CI/CD пайплайнів (ArgoCD, Spinnaker).</p>
-                <p>Здатність спокійно і зрозуміло пояснювати складні технічні концепції різним аудиторіям. Досвід координації високонавантажених проектів та географічно розподілених команд.</p>
-                <p><strong>Прагну знаходити нові можливості в SRE/DevOps, використовуючи попередній досвід як точку опори.</strong></p>
+                <p>Високорозвинений емоційний інтелект у поєднанні з великим галузевим досвідом та здатністю зрозуміло пояснювати складні технічні концепції — призвели до вміння координувати високонавантажені проекти та географічно розподілені команди.</p>
+                <p><strong>Прагну знаходити нові можливості, використовуючи попередній досвід як точку опори.</strong></p>
             </div>
         </section>
 
         <section class="section">
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg></span>
+                <span class="section-icon"><svg viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg></span>
                 Досвід
             </h2>
 
@@ -414,14 +390,12 @@
                         <span class="time">Червень 2025 - сьогодення</span>
                     </div>
                     <div class="company">159 ОМБр, в/ч А5000</div>
-                    <div class="details">
-                        <ul>
-                            <li>Керую засобом пеленгації ТСІ на Харківському напрямку</li>
-                            <li>Досвід автономної роботи на реальній позиції</li>
-                            <li>Досвід бойової роботи в системах ситуаційної обізнаності Delta/Айсберг</li>
-                            <li>Вдосконалив навички пояснювати складні речі простими словами</li>
-                        </ul>
-                    </div>
+                    <div class="details"><ul>
+                        <li>Керую засобом пеленгації ТСІ на Харківському напрямку</li>
+                        <li>Досвід автономної роботи на реальній позиції</li>
+                        <li>Досвід бойової роботи в системах ситуаційної обізнаності Delta/Айсберг</li>
+                        <li>Вдосконалив навички пояснювати складні речі простими словами</li>
+                    </ul></div>
                 </div>
             </div>
 
@@ -431,16 +405,14 @@
                     <span class="time">Травень 2021 - Квітень 2025</span>
                 </div>
                 <div class="company">Ledger</div>
-                <div class="details">
-                    <ul>
-                        <li>Проєктував та підтримував виробничу інфраструктуру для криптовалютної SaaS платформи, що обслуговує мільйони користувачів</li>
-                        <li>Впроваджував практики infrastructure-as-code з використанням Terraform та policy-as-code фреймворків для SaaS середовищ</li>
-                        <li>Керував Kubernetes deployments на AWS EKS з Helm charts та ArgoCD/Spinnaker для безперервної доставки</li>
-                        <li>Розробляв комплексні рішення моніторингу з Prometheus та Grafana для спостережуваності системи в реальному часі</li>
-                        <li>Оптимізував CI/CD пайплайни для досягнення швидших, надійніших циклів розгортання зі зниженими показниками збоїв</li>
-                        <li>Проводив аналіз продуктивності та troubleshooting високонавантажених розподілених систем</li>
-                    </ul>
-                </div>
+                <div class="details"><ul>
+                    <li>Проєктував та підтримував виробничу інфраструктуру для криптовалютної SaaS платформи, що обслуговує мільйони користувачів</li>
+                    <li>Впроваджував практики infrastructure-as-code з використанням Terraform та policy-as-code фреймворків</li>
+                    <li>Керував Kubernetes deployments на AWS EKS з Helm charts та ArgoCD/Spinnaker для безперервної доставки</li>
+                    <li>Розробляв комплексні рішення моніторингу з Prometheus та Grafana</li>
+                    <li>Оптимізував CI/CD пайплайни зі зниженими показниками збоїв</li>
+                    <li>Координував крос-функціональну співпрацю між командами розробки, безпеки та operations</li>
+                </ul></div>
             </div>
 
             <div class="experience-item">
@@ -449,14 +421,12 @@
                     <span class="time">Серпень 2019 - Травень 2021</span>
                 </div>
                 <div class="company">Ledger</div>
-                <div class="details">
-                    <ul>
-                        <li>Керував повною AWS інфраструктурою, включаючи EKS кластери, мережеві та безпекові конфігурації</li>
-                        <li>Розгортав та підтримував Kubernetes workloads за допомогою Helm, впроваджуючи best practices для масштабування</li>
-                        <li>Автоматизував provisioning інфраструктури з Terraform, Chef та Ansible/SaltStack для узгоджених середовищ</li>
-                        <li>Співпрацював з командами розробників для встановлення DevOps workflows та стандартів розгортання</li>
-                    </ul>
-                </div>
+                <div class="details"><ul>
+                    <li>Керував повною AWS інфраструктурою, включаючи EKS кластери, мережеві та безпекові конфігурації</li>
+                    <li>Розгортав та підтримував Kubernetes workloads за допомогою Helm</li>
+                    <li>Автоматизував provisioning інфраструктури з Terraform, Chef та Ansible/SaltStack</li>
+                    <li>Співпрацював з командами розробників для встановлення DevOps workflows та стандартів</li>
+                </ul></div>
             </div>
 
             <div class="experience-item">
@@ -465,13 +435,11 @@
                     <span class="time">Листопад 2022 - Серпень 2025</span>
                 </div>
                 <div class="company">Astroquirks</div>
-                <div class="details">
-                    <ul>
-                        <li>Побудував та підтримую інфраструктуру валідатора для блокчейнів на базі Tendermint/Cosmos (Osmosis, Stargaze)</li>
-                        <li>Спроєктував повний технічний стек для роботи блокчейн-ноди високої доступності з 99.9% uptime</li>
-                        <li>Впровадив системи моніторингу, алертинг та автоматичного відновлення для критичної інфраструктури</li>
-                    </ul>
-                </div>
+                <div class="details"><ul>
+                    <li>Побудував інфраструктуру валідатора для блокчейнів на базі Tendermint/Cosmos (Osmosis, Stargaze)</li>
+                    <li>Спроєктував повний технічний стек для блокчейн-ноди високої доступності з 99.9% uptime</li>
+                    <li>Впровадив системи моніторингу, алертинг та автоматичного відновлення</li>
+                </ul></div>
             </div>
 
             <div class="experience-item">
@@ -480,13 +448,12 @@
                     <span class="time">Жовтень 2013 - Жовтень 2018</span>
                 </div>
                 <div class="company">PortaOne, Київ</div>
-                <div class="details">
-                    <ul>
-                        <li>Надавав L3/L4 підтримку VoIP білінгових систем у виробничих середовищах</li>
-                        <li>Керував складними розгортаннями програмного забезпечення та системними інтеграціями для глобальних клієнтів</li>
-                        <li>Встановив процеси та стандарти для співпраці між Development, QA та Product Management</li>
-                    </ul>
-                </div>
+                <div class="details"><ul>
+                    <li>Керував командою технічної підтримки, надаючи L3/L4 підтримку VoIP білінгових систем</li>
+                    <li>Встановив процеси та стандарти для співпраці між Development, QA та Product Management</li>
+                    <li>Керував складними розгортаннями ПЗ та системними інтеграціями для глобальних клієнтів</li>
+                    <li>Знизив плинність кадрів через оптимізацію процесів та впровадження систем безперервного зростання</li>
+                </ul></div>
             </div>
 
             <div class="experience-item">
@@ -495,13 +462,11 @@
                     <span class="time">Жовтень 2008 - Жовтень 2013</span>
                 </div>
                 <div class="company">PortaOne, Київ</div>
-                <div class="details">
-                    <ul>
-                        <li>Розширене адміністрування Linux/FreeBSD та troubleshooting геонадлишкових кластерних систем</li>
-                        <li>Реалізація складних сценаріїв обслуговування, оновлень ПЗ та міграцій з мінімальним downtime</li>
-                        <li>On-site технічні консультації та встановлення для клієнтів по всьому світу</li>
-                    </ul>
-                </div>
+                <div class="details"><ul>
+                    <li>Розширене адміністрування Linux/FreeBSD та troubleshooting геонадлишкових кластерних систем</li>
+                    <li>Реалізація складних сценаріїв обслуговування, оновлень ПЗ та міграцій з мінімальним downtime</li>
+                    <li>On-site технічні консультації та встановлення для клієнтів по всьому світу</li>
+                </ul></div>
             </div>
 
             <div class="experience-item">
@@ -529,35 +494,44 @@
 
         <section class="section">
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7.7-17.4 13.9-25.2L48.5 213c-11.3-11.3-11.3-29.6 0-40.8l57.4-56.7c11.3-11.3 29.5-11.3 40.8 0l83.5 83.5c7.8-6.1 16.3-10.8 25.2-13.7c11.4-3.9 23.7-.8 32.2 7.7l30.9 30.9c5.7 5.7 8.7 13.5 8.4 21.6c19.4 14.6 34.5 34.4 43.5 57.5H480c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H64C46.3 32 32 46.3 32 64V352c0 17.7 14.3 32 32 32h92.5zM256 224a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-43.3 203.3l-20.6-20.6-76.2 76.2c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l76.2-76.2-20.6-20.6c-1.3-1.3-2.5-2.7-3.6-4.1zM393.4 307.2l-39.6-39.6c-3.3 5.7-7.2 11-11.7 15.5s-9.9 8.4-15.5 11.7l39.6 39.6 27.1-27.1z"/></svg></span>
-                Технічні навички
+                <span class="section-icon"><svg viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7.7-17.4 13.9-25.2L48.5 213c-11.3-11.3-11.3-29.6 0-40.8l57.4-56.7c11.3-11.3 29.5-11.3 40.8 0l83.5 83.5c7.8-6.1 16.3-10.8 25.2-13.7c11.4-3.9 23.7-.8 32.2 7.7l30.9 30.9c5.7 5.7 8.7 13.5 8.4 21.6c19.4 14.6 34.5 34.4 43.5 57.5H480c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H64C46.3 32 32 46.3 32 64V352c0 17.7 14.3 32 32 32h92.5zM256 224a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-43.3 203.3l-20.6-20.6-76.2 76.2c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l76.2-76.2-20.6-20.6c-1.3-1.3-2.5-2.7-3.6-4.1zM393.4 307.2l-39.6-39.6c-3.3 5.7-7.2 11-11.7 15.5s-9.9 8.4-15.5 11.7l39.6 39.6 27.1-27.1z"/></svg></span>
+                Навички
             </h2>
+
+            <div class="skill-item">
+                <h3 class="skill-name">Комунікація</h3>
+                <div class="skill-bar"><div class="skill-bar-inner" style="--level: 98%"></div></div>
+            </div>
+            <div class="skill-item">
+                <h3 class="skill-name">Вирішення проблем</h3>
+                <div class="skill-bar"><div class="skill-bar-inner" style="--level: 87%"></div></div>
+            </div>
+            <div class="skill-item">
+                <h3 class="skill-name">Управління</h3>
+                <div class="skill-bar"><div class="skill-bar-inner" style="--level: 97%"></div></div>
+            </div>
+            <div class="skill-item">
+                <h3 class="skill-name">Аналітика</h3>
+                <div class="skill-bar"><div class="skill-bar-inner" style="--level: 95%"></div></div>
+            </div>
+            <div class="skill-item">
+                <h3 class="skill-name">Технічний</h3>
+                <div class="skill-bar"><div class="skill-bar-inner" style="--level: 75%"></div></div>
+            </div>
 
             <div class="tech-skills">
                 <h3>Хмарна інфраструктура та контейнери</h3>
-                <ul>
-                    <li>Kubernetes (EKS, RBAC, NetworkPolicy, ExternalSecrets), AWS (EC2, EKS, S3, CloudFormation), Docker</li>
-                </ul>
+                <ul><li>Kubernetes (EKS, RBAC, NetworkPolicy, ExternalSecrets), AWS (EC2, EKS, S3, CloudFormation), Docker</li></ul>
                 <h3>Infrastructure as Code</h3>
-                <ul>
-                    <li>Terraform, Helm, Chef, Ansible/SaltStack</li>
-                </ul>
+                <ul><li>Terraform, Helm, Chef, Ansible/SaltStack</li></ul>
                 <h3>CI/CD & GitOps</h3>
-                <ul>
-                    <li>ArgoCD, Spinnaker, GitHub Actions</li>
-                </ul>
+                <ul><li>ArgoCD, Spinnaker, GitHub Actions</li></ul>
                 <h3>Моніторинг та спостережуваність</h3>
-                <ul>
-                    <li>Prometheus, Grafana, логування, трасування, алерти, метрики RED/DORA</li>
-                </ul>
-                <h3>Безпека та управління доступом</h3>
-                <ul>
-                    <li>Vault, OAuth2, OIDC, системи автентифікації</li>
-                </ul>
+                <ul><li>Prometheus, Grafana, логування, трасування, алерти, метрики RED/DORA</li></ul>
+                <h3>Безпека</h3>
+                <ul><li>Vault, OAuth2, OIDC</li></ul>
                 <h3>Системне адміністрування</h3>
-                <ul>
-                    <li>Linux (Ubuntu, RHEL, LFS), FreeBSD, мережі, оптимізація продуктивності, troubleshooting</li>
-                </ul>
+                <ul><li>Linux (Ubuntu, RHEL, LFS), FreeBSD, мережі, оптимізація продуктивності</li></ul>
             </div>
         </section>
 
@@ -565,12 +539,12 @@
 
     <aside class="sidebar">
         <div class="profile">
-            <img class="profile-photo" src="profile.png" alt="Юрій Клековкін" width="115" height="115">
+            <img class="profile-photo" src="../profile.png" alt="Юрій Клековкін" width="120" height="120">
             <h1 class="name">Юрій Клековкін</h1>
-            <p class="tagline">Site Reliability Engineer · DevOps Engineer</p>
+            <p class="tagline">SRE · DevOps · Управління командами</p>
         </div>
-        <div class="lang-toggle"><span class="active">UA</span> | <a href="sre-en.html">EN</a></div>
-        <div class="donate-banner"><a href="donate.html">Підтримати ЗСУ / Support UAF</a></div>
+        <div class="lang-toggle"><span class="active">UA</span> | <a href="en.html">EN</a></div>
+        <div class="donate-banner"><a href="../donate.html">Підтримати ЗСУ / Support UAF</a></div>
         <div class="sidebar-block">
             <h2 class="sidebar-block-title">Контакти</h2>
             <div class="contact-item"><svg class="contact-icon" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><a href="mailto:iurii@klekovkin.com.ua">iurii@klekovkin.com.ua</a></div>
@@ -603,7 +577,7 @@
 </div>
 
 <footer class="cv-footer">
-    <p><a href="donate.html">Підтримати солдата ЗСУ / Support Ukrainian Soldier</a></p>
+    <p><a href="../donate.html">Підтримати солдата ЗСУ / Support Ukrainian Soldier</a></p>
     <small>Designed with care. &copy; Юрій Клековкін</small>
 </footer>
 

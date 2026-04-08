@@ -291,56 +291,53 @@
             .experience-header { flex-direction: column; gap: 2px; }
         }
 
-        @page {
-            size: A4;
-            margin: 12mm;
-        }
+        @page { size: A4; margin: 10mm 8mm; }
 
         @media print {
-            body { padding: 0; background: white; font-size: 11px; color: #2E3440; }
+            body { padding: 0; background: white; font-size: 10px; color: #2E3440; line-height: 1.4; }
 
-            .cv-wrapper {
-                box-shadow: none;
-                max-width: 100%;
-                grid-template-columns: 1fr;
-            }
-
-            .main-content {
-                background: white;
-                padding: 0;
-                order: 0;
-            }
+            .cv-wrapper { box-shadow: none; max-width: 100%; }
+            .main-content { background: white; padding: 20px 24px; }
 
             .sidebar {
                 background: var(--color-sidebar) !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
                 min-height: auto;
-                order: -1;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0;
             }
 
-            .profile {
-                grid-column: 1 / -1;
-            }
-
+            .profile { padding: 20px 16px 14px; }
+            .profile-photo { width: 80px; height: 80px; margin-bottom: 10px; }
+            .profile .name { font-size: 18px; margin-bottom: 4px; }
+            .profile .tagline { font-size: 11px; }
+            .sidebar-block { padding: 12px 16px; }
+            .sidebar-block-title { font-size: 11px; margin-bottom: 8px; }
+            .contact-item { margin-bottom: 6px; font-size: 11px; }
+            .contact-icon { width: 12px; height: 12px; }
             .lang-toggle { display: none; }
 
-            .section { margin-bottom: 16px; break-inside: avoid; }
-            .experience-item { break-inside: avoid; margin-bottom: 16px; }
-            .section-title { font-size: 16px; margin-bottom: 12px; padding-bottom: 6px; }
-            .job-title { font-size: 14px; }
-            .details { font-size: 12px; }
-            .summary { font-size: 12px; }
-            .summary p { margin-bottom: 0.5em; }
+            .section { margin-bottom: 12px; break-inside: avoid; }
+            .section-title { font-size: 13px; margin-bottom: 8px; padding-bottom: 4px; }
+            .section-icon { width: 22px; height: 22px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .section-icon svg { width: 11px; height: 11px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-            .skill-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .skill-bar-inner { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
+            .experience-item { break-inside: avoid; margin-bottom: 10px; padding-left: 10px; border-left-width: 2px; }
+            .job-title { font-size: 12px; }
+            .time { font-size: 10px; }
+            .company { font-size: 10px; margin-bottom: 4px; }
+            .details { font-size: 10px; line-height: 1.4; }
+            .details li { margin-bottom: 1px; }
+            .details ul { margin-bottom: 0.3em; }
 
-            .section-icon { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .section-icon svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .summary { font-size: 10px; line-height: 1.4; }
+            .summary p { margin-bottom: 0.3em; }
+
+            .skill-item { margin-bottom: 8px; }
+            .skill-name { font-size: 11px; margin-bottom: 3px; }
+            .skill-bar { height: 6px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-bar-inner { height: 6px; -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none; width: var(--level) !important; }
+            .tech-skills { margin-top: 12px; }
+            .tech-skills h3 { font-size: 10px; margin-bottom: 3px; }
+            .tech-skills li { font-size: 10px; margin-bottom: 1px; }
 
             a { text-decoration: none !important; color: inherit !important; }
             .donate-banner { display: none; }
