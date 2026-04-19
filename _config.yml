@@ -1,0 +1,13 @@
+exclude:
+  - CLAUDE.md
+  - README.md
+  - concepts
+  - docs
+  - _handoff
+  - index-prev.html
+  - donate-v6.html
+  - jar-proxy
+  - cover-letter-dt-lead.txt
+  - "*.pdf"
+  - ".ralphex"
+  - ".claude"
