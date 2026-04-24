@@ -5,3 +5,9 @@ docs/
 *.swp
 *~
 *.pdf
+
+# jar-proxy (Cloudflare Worker)
+jar-proxy/node_modules/
+jar-proxy/.dev.vars
+jar-proxy/.wrangler/
+jar-proxy/package-lock.json

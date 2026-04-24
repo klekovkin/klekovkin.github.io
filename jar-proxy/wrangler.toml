@@ -1,0 +1,13 @@
+name = "jar-proxy"
+main = "src/index.js"
+compatibility_date = "2026-04-19"
+
+# Secrets (set via `wrangler secret put`):
+#   MONO_TOKEN   - Monobank personal API token
+#
+# Vars (public, edit freely):
+[vars]
+JAR_SEND_ID = "jar/4NK9pJCJw3"
+# Unix seconds — fundraiser start; donors_count ignores earlier transactions
+START_UNIX = "1776571200"
+ALLOWED_ORIGINS = "https://cv.klekovkin.com.ua,http://localhost:8000,http://127.0.0.1:8000"
