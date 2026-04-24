@@ -42,6 +42,8 @@ export default {
     // Statement: count credits (amount > 0) since fundraiser start.
     const startUnix = parseInt(env.START_UNIX || '0', 10) || Math.floor((Date.now() - 90 * 86400 * 1000) / 1000);
     let donors = null;
+    let maxDonationUah = null;
+    let lastDonationAt = null;
     let truncated = false;
     try {
       const url = `${STATEMENT}/${jar.id}/${startUnix}`;
@@ -49,8 +51,18 @@ export default {
       if (r.ok) {
         const txs = await r.json();
         if (Array.isArray(txs)) {
-          donors = txs.filter(t => t.amount > 0).length;
+          const credits = txs.filter(t => t.amount > 0);
+          donors = credits.length;
           truncated = txs.length >= 500;
+          if (credits.length) {
+            let maxMinor = 0, lastTs = 0;
+            for (const t of credits) {
+              if (t.amount > maxMinor) maxMinor = t.amount;
+              if (t.time > lastTs) lastTs = t.time;
+            }
+            maxDonationUah = maxMinor / 100;
+            lastDonationAt = lastTs || null;
+          }
         }
       }
       // On non-ok (e.g. 429 rate limit), leave donors=null — client keeps stale count.
@@ -63,6 +75,8 @@ export default {
       goal_uah: jar.goal / 100,
       title: jar.title,
       donors_count: donors,
+      max_donation_uah: maxDonationUah,
+      last_donation_at: lastDonationAt,
       truncated,
       updated_at: Date.now()
     };
