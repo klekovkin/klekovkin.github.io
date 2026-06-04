@@ -4,11 +4,18 @@ Cloudflare Worker that reads the Monobank jar balance with a secret token and ex
 
 ## Account & access
 
-This worker is deployed under **Iurii Klekovkin's Cloudflare account**. Deploying,
-reading logs, rotating secrets, or managing the `MONO_KV` namespace all require
-**explicit authorization from Klekovkin on Cloudflare** — `wrangler` must be
-authenticated against his account (e.g. `wrangler login` with his credentials, or a
-scoped API token he issues). No one else can deploy this worker.
+Both the source repo and the runtime are owned by **Iurii Klekovkin**, and each requires
+his own credentials:
+
+- **GitHub** — this repo is `klekovkin/klekovkin.github.io`. Pushing (the change is served
+  live via GitHub Pages) requires **write access under Klekovkin's GitHub account**. `git`
+  must be authenticated as Klekovkin (or a collaborator he has explicitly granted) — no
+  other account can push.
+- **Cloudflare** — the worker is deployed under **Klekovkin's Cloudflare account**.
+  Deploying, reading logs, rotating secrets, or managing the `MONO_KV` namespace all require
+  **explicit authorization from Klekovkin on Cloudflare** — `wrangler` must be authenticated
+  against his account (e.g. `wrangler login` with his credentials, or a scoped API token he
+  issues). No one else can deploy this worker.
 
 The worker domain is fixed:
 
