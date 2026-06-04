@@ -6,6 +6,21 @@ docs/
 *~
 *.pdf
 
+# Local agent instructions and working notes for this public repo
+AGENTS.md
+CODEX.md
+
+# Codex workspace memory
+# Keep curated repo-local memory tracked, but ignore transient local state.
+!.codex/
+!.codex/memories/
+!.codex/memories/PROJECT.md
+.codex/local/
+.codex/tmp/
+.codex/cache/
+.codex/sessions/
+.codex/*.local.*
+
 # jar-proxy (Cloudflare Worker)
 jar-proxy/node_modules/
 jar-proxy/.dev.vars
