@@ -10,16 +10,8 @@ docs/
 AGENTS.md
 CODEX.md
 
-# Codex workspace memory
-# Keep curated repo-local memory tracked, but ignore transient local state.
-!.codex/
-!.codex/memories/
-!.codex/memories/PROJECT.md
-.codex/local/
-.codex/tmp/
-.codex/cache/
-.codex/sessions/
-.codex/*.local.*
+# Codex workspace
+.codex/
 
 # jar-proxy (Cloudflare Worker)
 jar-proxy/node_modules/
