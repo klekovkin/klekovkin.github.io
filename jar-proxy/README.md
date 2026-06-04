@@ -2,6 +2,24 @@
 
 Cloudflare Worker that reads the Monobank jar balance with a secret token and exposes one public CORS endpoint for the donate page.
 
+## Account & access
+
+This worker is deployed under **Iurii Klekovkin's Cloudflare account**. Deploying,
+reading logs, rotating secrets, or managing the `MONO_KV` namespace all require
+**explicit authorization from Klekovkin on Cloudflare** — `wrangler` must be
+authenticated against his account (e.g. `wrangler login` with his credentials, or a
+scoped API token he issues). No one else can deploy this worker.
+
+The worker domain is fixed:
+
+```
+https://jar-proxy.klekovkin.workers.dev/
+```
+
+It lives on the **`klekovkin` workers.dev subdomain** (his Cloudflare account's reserved
+subdomain). The donate page hard-codes this URL as `MONO_PROXY`, so the name must not
+change without updating `donate.html` / `donate-v7.html`.
+
 ## Deploy
 
 ```bash
@@ -14,15 +32,15 @@ wrangler secret put MONO_TOKEN
 # 2. Edit wrangler.toml → set JAR_SEND_ID to the jar's sendId
 #    (the XXXXXX in https://send.monobank.ua/jar/XXXXXX)
 
-# 3. Deploy
+# 3. Deploy (requires auth against Klekovkin's Cloudflare account — see Account & access)
 wrangler deploy
-# → prints https://jar-proxy.<your-subdomain>.workers.dev
+# → prints https://jar-proxy.klekovkin.workers.dev
 ```
 
 ## Response shape
 
 ```
-GET https://jar-proxy.<you>.workers.dev/
+GET https://jar-proxy.klekovkin.workers.dev/
 
 200 OK
 {
