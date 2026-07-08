@@ -5,3 +5,16 @@ docs/
 *.swp
 *~
 *.pdf
+
+# Local agent instructions and working notes for this public repo
+AGENTS.md
+CODEX.md
+
+# Codex workspace
+.codex/
+
+# jar-proxy (Cloudflare Worker)
+jar-proxy/node_modules/
+jar-proxy/.dev.vars
+jar-proxy/.wrangler/
+jar-proxy/package-lock.json

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Все одно дякую / Thank you anyway — 159 ОМБР</title>
-<meta name="description" content="Донат скасовано, але дякуємо за увагу. / Donation cancelled — thank you for stopping by anyway.">
+<title>Дякуємо за переказ на банку / Thank you — Monobank — 159 ОМБР</title>
+<meta name="description" content="Дякуємо за переказ на банку Monobank для 159 ОМБР. / Thank you for your Monobank jar donation to the 159th Brigade.">
 <meta name="robots" content="noindex">
 
 <link rel="icon" href="favicon.ico">
@@ -83,7 +83,7 @@
     gap: 18px;
     font-weight: 600;
   }
-  .meta .dot { width: 6px; height: 6px; background: var(--rule-strong); border-radius: 50%; display: inline-block; }
+  .meta .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; display: inline-block; }
   @media (max-width: 720px) {
     .top { padding: 18px 20px 14px; gap: 14px; }
     .meta { font-size: 10px; gap: 12px; }
@@ -111,7 +111,7 @@
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--ink-soft);
+    color: var(--gold-deep);
     font-weight: 700;
     margin-bottom: 20px;
     display: inline-flex;
@@ -119,16 +119,16 @@
     gap: 10px;
   }
   .eyebrow::before {
-    content: '◇';
-    color: var(--rule-strong);
+    content: '◆';
+    color: var(--gold);
     font-size: 10px;
   }
   .eyebrow .en { color: var(--ink-mute); font-weight: 600; letter-spacing: 0.18em; }
   h1 {
     font-family: var(--f-display);
     font-weight: 800;
-    font-size: clamp(38px, 5.6vw, 60px);
-    line-height: 1;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 0.98;
     letter-spacing: -0.035em;
     color: var(--navy-ink);
     margin: 0 0 10px;
@@ -138,7 +138,7 @@
     color: var(--ink-mute);
     font-family: var(--f-display);
     font-weight: 600;
-    font-size: clamp(20px, 2.3vw, 26px);
+    font-size: clamp(22px, 2.6vw, 30px);
     letter-spacing: -0.02em;
     line-height: 1;
     margin-top: 14px;
@@ -148,7 +148,7 @@
     font-size: clamp(16px, 1.6vw, 19px);
     line-height: 1.55;
     color: var(--ink-soft);
-    max-width: 60ch;
+    max-width: 58ch;
     margin: 26px 0 0;
     font-weight: 500;
   }
@@ -161,77 +161,63 @@
     font-weight: 400;
   }
 
-  /* Other rails panel */
-  .rails-other {
+  /* Receipt / bill */
+  .receipt {
     background: var(--paper-tint);
     border: 1px solid var(--rule);
-    border-left: 3px solid var(--navy);
+    border-left: 3px solid var(--gold);
     border-radius: 4px;
-    padding: 26px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    padding: 28px 30px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px 28px;
+    align-items: baseline;
   }
-  @media (max-width: 620px) { .rails-other { padding: 22px 20px; } }
-  .rails-other-head {
+  @media (max-width: 620px) {
+    .receipt { grid-template-columns: 1fr; padding: 22px 20px; gap: 16px; }
+  }
+  .receipt-head {
     font-family: var(--f-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-mute);
     font-weight: 700;
-    padding-bottom: 12px;
+    grid-column: 1 / -1;
+    padding-bottom: 14px;
     border-bottom: 1px dashed var(--rule-strong);
     display: flex;
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
   }
-  .rails-other-list {
+  .receipt-row {
     display: flex;
-    gap: 10px;
+    align-items: baseline;
+    gap: 12px;
     flex-wrap: wrap;
   }
-  .rail-chip {
+  .receipt-label {
     font-family: var(--f-mono);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 9px 13px;
-    background: var(--paper);
-    border: 1px solid var(--rule-strong);
-    border-radius: 3px;
-    color: var(--navy-ink);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    transition: all 140ms ease;
-  }
-  .rail-chip .tag {
-    color: var(--ink-mute);
-    font-weight: 500;
-    margin-left: 2px;
     font-size: 10px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-  }
-  .rail-chip::after {
-    content: '→';
-    margin-left: 4px;
     color: var(--ink-mute);
-    font-size: 11px;
-    transition: transform 140ms ease, color 140ms ease;
+    font-weight: 700;
+    flex: none;
+    min-width: 92px;
   }
-  .rail-chip:hover {
-    background: var(--gold-soft);
-    border-color: var(--gold);
-    color: var(--navy);
-    transform: translateY(-1px);
+  .receipt-value {
+    font-family: var(--f-body);
+    font-size: 15px;
+    color: var(--navy-ink);
+    font-weight: 600;
   }
-  .rail-chip:hover::after { color: var(--gold-deep); transform: translateX(3px); }
-  .rail-chip:hover .tag { color: var(--gold-deep); }
+  .receipt-value.ua { font-weight: 700; }
+  .receipt-value .en { color: var(--ink-mute); font-weight: 500; margin-left: 6px; font-size: 13px; }
+  .receipt-value a { color: var(--navy-ink); border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
+  .receipt-value a:hover { color: var(--gold-deep); border-bottom-color: var(--gold-deep); }
+  .receipt-value code { font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.03em; }
 
   .note {
     font-family: var(--f-body);
@@ -327,40 +313,56 @@
 <main class="shell">
 
   <section class="hero">
-    <div class="eyebrow">Платіж скасовано <span class="en">· Payment cancelled</span></div>
+    <div class="eyebrow">Переказ на банку прийнято <span class="en">· Jar transfer received</span></div>
     <h1>
-      Все одно дякую.
-      <span class="en">Thank you anyway.</span>
+      Дякую, що поповнили банку.
+      <span class="en">Thank you for topping up the jar.</span>
     </h1>
     <p class="lede">
-      Платіж не пройшов — можливо, передумали, можливо, щось зламалось. <b>Обидва варіанти нормальні.</b> Якщо захочете спробувати ще — є інші способи на одній сторінці.
-      <span class="en">The payment did not go through — maybe you changed your mind, maybe something broke. Both are fine. If you want to try again, there are other rails on one page.</span>
+      Ваш внесок вже в банці Monobank на <b>польовий пікап</b> для 159 окремої механізованої бригади ЗСУ. Кошти бачу в реальному часі — рахунок публічний. Кожна гривня йде на одну конкретну машину для хлопців на Харківському напрямку.
+      <span class="en">Your donation has landed in the Monobank jar for a pickup for the 159th Separate Mechanized Brigade. The jar is public and updates in real time. Every hryvnia goes to one specific vehicle for the unit on the Kharkiv axis.</span>
     </p>
   </section>
 
-  <section class="rails-other" aria-label="Other payment rails">
-    <div class="rails-other-head">
-      <span>◇ Інші способи · Other rails</span>
-      <span>3 ШЛЯХИ · 3 RAILS</span>
+  <section class="receipt" aria-label="Receipt">
+    <div class="receipt-head">
+      <span>◆ Квитанція · Receipt</span>
+      <span>№ 159-ОМБР · MONO</span>
     </div>
-    <div class="rails-other-list">
-      <a class="rail-chip" href="/donate#tab-mono">Monobank <span class="tag">UAH</span></a>
-      <a class="rail-chip" href="/donate#tab-paypal">PayPal <span class="tag">USD</span></a>
-      <a class="rail-chip" href="/donate#tab-crypto">USDT <span class="tag">TRC20</span></a>
-      <a class="rail-chip" href="/donate#tab-crypto">BTC</a>
-      <a class="rail-chip" href="/donate#tab-crypto">ETH</a>
-      <a class="rail-chip" href="/donate#tab-crypto">ATOM</a>
-      <a class="rail-chip" href="/donate#tab-crypto">SOL</a>
+    <div class="receipt-row">
+      <span class="receipt-label">Статус · Status</span>
+      <span class="receipt-value ua">Прийнято <span class="en">· Accepted</span></span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-label">Спосіб · Rail</span>
+      <span class="receipt-value">Monobank · UAH <span class="en">· Банка</span></span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-label">Банка · Jar</span>
+      <span class="receipt-value"><a href="https://send.monobank.ua/jar/4NK9pJCJw3" target="_blank" rel="noopener"><code>send.monobank.ua/jar/4NK9pJCJw3</code></a></span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-label">Ціль · Goal</span>
+      <span class="receipt-value">Nissan Navara <span class="en">· Pickup truck</span></span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-label">Бригада · Unit</span>
+      <span class="receipt-value">159 ОМБР <span class="en">· 159th Brigade</span></span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-label">Фронт · Axis</span>
+      <span class="receipt-value">Харківський <span class="en">· Kharkiv</span></span>
     </div>
   </section>
 
   <div class="note">
-    <p>Якщо це була технічна помилка PayPal — напишіть на <a href="mailto:iurii@klekovkin.com.ua">iurii@klekovkin.com.ua</a> і спробуємо розібратись.</p>
-    <p class="en">If the PayPal checkout failed for a technical reason, drop a line and we'll look into it.</p>
+    <p>Monobank показує донати у банці публічно — ім'я з вашої картки може бути видно у списку донатерів. Якщо хочете отримати окреме підтвердження про вручення авто, напишіть на <a href="mailto:iurii@klekovkin.com.ua">iurii@klekovkin.com.ua</a> з коротким описом суми і дати переказу.</p>
+    <p class="en">Monobank jars are public — your card name may appear in the donor list. For a direct confirmation once the vehicle is delivered, write with the amount and date of your transfer.</p>
   </div>
 
   <div class="actions">
-    <a class="btn primary" href="/donate">← Інші способи <span class="en">· Other rails</span></a>
+    <a class="btn primary" href="/donate">← Повернутись до збору <span class="en">· Back to fund</span></a>
+    <a class="btn" href="https://send.monobank.ua/jar/4NK9pJCJw3" target="_blank" rel="noopener">Відкрити банку <span class="en">· Open jar ↗</span></a>
     <a class="btn" href="/">CV Юрія <span class="en">· Iurii's CV</span></a>
   </div>
 
